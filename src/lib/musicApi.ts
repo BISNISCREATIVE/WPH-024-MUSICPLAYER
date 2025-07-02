@@ -13,7 +13,7 @@ export async function fetchSongs(): Promise<Song[]> {
   if (!res.ok) throw new Error('Failed to fetch songs');
   const data = await res.json();
   // Map API data ke Song[]
-  return (data.songs || []).map((item: Record<string, any>) => ({
+  return (data.songs || []).map((item: Record<string, unknown>) => ({
     id: item.id,
     title: item.title,
     artist: item.artist_name,

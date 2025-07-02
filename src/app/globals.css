@@ -382,3 +382,23 @@ body {
 .volume-bar[data-volume] .volume-bar__fill {
   width: calc(attr(data-volume number) * 100%);
 }
+
+/* Equalizer bar height utility classes */
+.eqbar-h { transition: height 0.2s; }
+.eqbar-h-16 { height: 16px; }
+.eqbar-h-17 { height: 17px; }
+.eqbar-h-18 { height: 18px; }
+.eqbar-h-19 { height: 19px; }
+.eqbar-h-20 { height: 20px; }
+.eqbar-h-21 { height: 21px; }
+.eqbar-h-22 { height: 22px; }
+.eqbar-h-23 { height: 23px; }
+.eqbar-h-24 { height: 24px; }
+.eqbar-h-25 { height: 25px; }
+.eqbar-h-26 { height: 26px; }
+.eqbar-h-27 { height: 27px; }
+.eqbar-h-28 { height: 28px; }
+.eqbar-h-29 { height: 29px; }
+.eqbar-h-30 { height: 30px; }
+.eqbar-h-31 { height: 31px; }
+.eqbar-h-32 { height: 32px; }

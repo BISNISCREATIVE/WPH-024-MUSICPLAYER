@@ -1,9 +1,9 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState, RefObject } from "react";
 
 interface EqualizerBarsProps {
   playerState: "playing" | "paused" | "loading";
   className?: string;
-  audioRef?: React.RefObject<HTMLAudioElement>;
+  audioRef?: RefObject<HTMLAudioElement | null>;
 }
 
 const barColors = [
@@ -16,7 +16,7 @@ const EqualizerBars: React.FC<EqualizerBarsProps> = ({ playerState, className, a
   const analyserRef = useRef<AnalyserNode | null>(null);
   const audioCtxRef = useRef<AudioContext | null>(null);
   const sourceRef = useRef<MediaElementAudioSourceNode | null>(null);
-  const animationRef = useRef<number>();
+  const animationRef = useRef<number | undefined>(undefined);
 
   useEffect(() => {
     if (!audioRef?.current || playerState !== "playing") {
@@ -79,7 +79,7 @@ const EqualizerBars: React.FC<EqualizerBarsProps> = ({ playerState, className, a
   return (
     <div className={`flex flex-row items-end gap-1 ${className || ''}`}>
       {barHeights.map((h, i) => (
-        <div key={i} className={`rounded w-3 ${barColors[i]}`} style={{ height: `${h}px` }} />
+        <div key={i} className={`rounded w-3 ${barColors[i]} eqbar-h eqbar-h-${Math.round(h)}`} />
       ))}
     </div>
   );
