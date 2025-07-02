@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useRef, useState } from 'react';
+import React, { useRef } from 'react';
 
 const TEST_AUDIO = '/music/01 Spirit of Sunda.mp3'; // Ganti sesuai file yang pasti ada
 
