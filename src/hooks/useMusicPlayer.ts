@@ -1,6 +1,7 @@
 'use client';
 import { useCallback, useEffect, useRef, useState } from 'react';
-import { Song, fetchLocalPlaylist } from '../lib/musicApi';
+import type { Song } from '../types/music';
+import { fetchLocalPlaylist } from '../lib/musicApi';
 
 export function useMusicPlayer() {
   const [songs, setSongs] = useState<Song[]>([]);
