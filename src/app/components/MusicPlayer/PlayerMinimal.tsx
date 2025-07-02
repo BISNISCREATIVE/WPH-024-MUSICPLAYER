@@ -6,19 +6,16 @@ const TEST_AUDIO = '/music/01 Spirit of Sunda.mp3'; // Ganti sesuai file yang pa
 
 const PlayerMinimal: React.FC = () => {
   const audioRef = useRef<HTMLAudioElement | null>(null);
-  const [isPlaying, setIsPlaying] = useState(false);
 
   const handlePlay = () => {
     if (audioRef.current) {
       audioRef.current.play();
-      setIsPlaying(true);
     }
   };
 
   const handlePause = () => {
     if (audioRef.current) {
       audioRef.current.pause();
-      setIsPlaying(false);
     }
   };
 

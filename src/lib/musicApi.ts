@@ -1,13 +1,5 @@
 // import { Song } from '../types/music';
-
-export interface Song {
-  id: string;
-  title: string;
-  artist: string;
-  coverUrl?: string;
-  audioUrl: string;
-  duration: number;
-}
+import type { Song } from '../types/music';
 
 export async function fetchSongs(): Promise<Song[]> {
   // Ganti dengan token Soundstripe asli
@@ -52,7 +44,11 @@ export async function fetchSongById(songId: string): Promise<Song> {
 }
 
 export async function fetchLocalPlaylist(): Promise<Song[]> {
-  const res = await fetch('/api/music-list');
+  const res: Response = await fetch('/api/music-list');
   if (!res.ok) return [];
-  return await res.json();
+  const data: unknown = await res.json();
+  if (Array.isArray(data)) {
+    return data as Song[];
+  }
+  return [];
 } 

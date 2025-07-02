@@ -8,7 +8,7 @@ export default function handler(req: NextApiRequest, res: NextApiResponse) {
   try {
     files = fs.readdirSync(musicDir)
       .filter(file => file.endsWith('.mp3'));
-  } catch (e) {
+  } catch {
     return res.status(200).json([]);
   }
   const playlist = files.map((file, idx) => ({
